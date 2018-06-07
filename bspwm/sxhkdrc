@@ -1,0 +1,78 @@
+# New Terminal
+super + Return
+	urxvt
+
+# Close window
+alt + F4
+	bspc node -c
+
+# Toggle window state (tiled, floating)
+super + s
+	bspc query --nodes -n focused.tiled && state=floating || state=tiled; \
+	bspc node --state \~$state
+
+# Move window to other desktop
+super + shift + {1-5}
+	bspc node --to-desktop ^{1-5}
+
+# Fullscreen window
+F11
+	bspc node --state \~fullscreen
+
+# program launcher
+super + space
+	~/.scripts/launcher.sh
+
+# Update screen resolution (for working in VirtualBox)
+super + r
+	xrandr --output VGA-1 --auto; \
+	~/.config/polybar/launch.sh; \
+	~/.fehbg
+
+# Reload polybar
+super + b
+	~/.config/polybar/launch.sh
+
+# Move focus
+super + {Left,Down,Up,Right}
+	bspc node --focus {west,south,north,east}
+
+# Switch between desktops
+super + {1-5}
+	bspc desktop -f {I,II,III,IV,V}
+
+# Tab through windows
+super + {_,shift} + Tab
+	bspc node --focus {prev,next}
+
+# ÜBERARBEITEN
+
+# Reload sxhkd config files
+super + Escape
+	pkill -USR1 -x sxhkd
+
+# Quit bspwm
+super + alt + Escape
+	bspc quit
+
+# Preselect the direction
+super + ctrl + {Left,Down,Up,Right}
+	bspc node -p {west,south,north,east}
+
+# Cancel the preselection
+super + ctrl + space
+	bspc node -p cancel
+
+# Swap with greatest tile
+super + g
+	bspc node -s biggest
+
+# Resize tiled node (top left corner)
+super + alt + {Left,Down,Up,Right}
+	bspc node -z {left -20 0,top 0 20,top 0 -20,left 20 0}
+
+# Resize tiled node (bottom right corner)
+super + alt + ctrl + {Left,Down,Up,Right}
+	bspc node -z {right -20 0,bottom 0 20, bottom 0 -20,right 20 0}
+
+
