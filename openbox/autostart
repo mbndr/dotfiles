@@ -1,0 +1,3 @@
+compton -b
+nitrogen --restore
+/home/maxi/.config/polybar/launch.sh
