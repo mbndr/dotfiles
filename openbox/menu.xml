@@ -27,6 +27,11 @@
 </menu>
 
 <menu id="misc-menu" label="Misc">
+  <item label="Thunderbird">
+    <action name="Execute">
+      <command>thunderbird</command>
+    </action>
+  </item>
   <item label="Take screenshot">
     <action name="Execute">
       <command>scrot ~/screenshots/scrot_%Y-%m-%d_%H-%M-%S.png</command>
@@ -39,12 +44,28 @@
   </item>
 </menu>
 
-
+<menu id="exit-menu" label="Exit">
+  <item label="Log Out">
+    <action name="Exit">
+      <prompt>yes</prompt>
+    </action>
+  </item>
+  <item label="Suspend">
+    <action name="Execute">
+      <command>systemctl suspend</command>
+    </action>
+  </item>
+  <item label="Shutdown">
+    <action name="Execute">
+      <command>shutdown -h now</command>
+    </action>
+  </item>
+</menu>
 
 <menu id="root-menu" label="Openbox 3">
   <item label="File Manager">
     <action name="Execute">
-      <command>nautilus</command>
+      <command>thunar</command>
       <startupnotify>
         <enabled>yes</enabled>
       </startupnotify>
@@ -73,11 +94,8 @@
   <separator />
   <menu id="misc-menu"/>
   <menu id="system-menu"/>
-  <item label="Log Out">
-    <action name="Exit">
-      <prompt>yes</prompt>
-    </action>
-  </item>
+  <menu id="exit-menu"/>
+  
 </menu>
 
 </openbox_menu>
