@@ -24,7 +24,7 @@ sort-column='name'
 sort-directories-first=true
 sort-order='descending'
 type-format='category'
-window-position=(441, 303)
+window-position=(857, 45)
 window-size=(799, 484)
 
 [org/mate/atril]
@@ -159,6 +159,7 @@ switch-to-workspace-3='<Mod4>3'
 switch-to-workspace-4='<Mod4>4'
 
 [org/mate/marco/window-keybindings]
+maximize='<Mod4>Up'
 move-to-side-s='disabled'
 tile-to-corner-ne='<Primary><Mod4>Right'
 tile-to-corner-nw='<Primary><Mod4>Left'
@@ -168,6 +169,7 @@ tile-to-side-e='<Mod4>Right'
 tile-to-side-w='<Mod4>Left'
 toggle-fullscreen='F11'
 toggle-shaded='disabled'
+unmaximize='<Mod4>Down'
 
 [org/mate/notification-daemon]
 theme='coco'
