@@ -3,6 +3,7 @@ URxvt.font: xft:Misc Tamsyn:style=Regular:pixelsize=14!
 URxvt.boldFont: xft:Misc Tamsyn:style=Regular:pixelsize=14
 URxvt.scrollBar: false
 URxvt.internalBorder: 10
+URxvt.iconFile: /usr/share/icons/Moka/16x16/apps/terminal.png
 
 URxvt.keysym.Control-Up: \033[1;5A
 URxvt.keysym.Control-Down: \033[1;5B
