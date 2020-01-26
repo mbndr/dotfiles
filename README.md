@@ -5,6 +5,9 @@ Dotfiles for my Linux system(s). Changing from time to time.
 
 ## Software
 * Image Viewer: Mirage
+* PDF Tool: pdfarranger
+* PDF Viewer: Atril
+
 
 Inspired by and copied from:
 * [FlyingBBQ](https://github.com/FlyingBBQ)
