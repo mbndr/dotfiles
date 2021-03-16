@@ -16,7 +16,7 @@ XF86Audio{Raise,Lower}Volume
 	$HOME/.scripts/mediactl spotify next 1 1
 
 {XF86AudioPrev, super + Left}
-	$HOME/.scripts/mediactl spotify next 1 1 
+	$HOME/.scripts/mediactl spotify previous 1 1 
 
 
 
