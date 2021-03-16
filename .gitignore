@@ -1,0 +1,4 @@
+nvim/.config/nvim/autoload/*
+!nvim/.config/nvim/autoload/.gitkeep
+nvim/.config/nvim/plugged/*
+!nvim/.config/nvim/plugged/.gitkeep
