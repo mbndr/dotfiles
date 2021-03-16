@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# Update topbar every minute automatically
+
+while :; do
+	topbar-content
+	sleep 20s
+done

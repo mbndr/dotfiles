@@ -1,0 +1,3 @@
+#!/bin/bash
+# only helper (more to come, webcam etc)
+screencast -u -s 1600x896

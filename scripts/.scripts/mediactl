@@ -1,0 +1,15 @@
+#!/bin/bash
+#
+# Call a playerctl action and refresh topbar if wanted
+
+player="${1:-spotify}"
+action="${2:-play-pause}"
+refreshTopbar="${3-0}"
+sleepBeforeRefresh="${4-0}"
+
+playerctl -p $player $action
+
+if [ $refreshTopbar == "1" ]; then
+	if [ $sleepBeforeRefresh == "1" ]; then sleep 0.5s; fi
+	$HOME/.scripts/topbar-content
+fi

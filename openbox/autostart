@@ -1,6 +1,0 @@
-compton -b
-#nitrogen --restore
-hsetroot -solid "#333333"
-#/home/maxi/.config/polybar/launch.sh
-dunst > /dev/null 2>&1 &
-numlockx on

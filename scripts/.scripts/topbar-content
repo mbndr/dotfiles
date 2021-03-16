@@ -1,0 +1,70 @@
+#!/bin/bash
+
+# Set the topbar content
+
+function content() {
+	local delim="|"
+
+	echo ""
+
+	# Current spotify song
+	# TODO: problem: call metadata multiple times because newlines are not stored properly in var...
+	local songStatus="$(playerctl status -p spotify)"
+	local songMetadata="$(playerctl metadata -p spotify)"
+
+	if [ $songStatus != "" ]; then
+		local songTitle=$(playerctl metadata -p spotify | awk '$2 ~ /title/ {$1=""; $2=""; print $0}' | sed -e 's/^[[:space:]]*//')
+		local songArtist=$(playerctl metadata -p spotify | awk '$2 ~ /artist/ {$1=""; $2=""; print $0}' | sed -e 's/^[[:space:]]*//')
+
+		echo "\"$songArtist\" - \"$songTitle\""
+		if [ $songStatus == "Paused" ]; then
+			echo "[paused]"
+		fi
+		echo "        "
+	fi
+ 
+	# Sound
+	echo "Sound:"
+	local paStatus="$(pulseaudio-ctl full-status)"
+	local paVol="$(echo $paStatus | awk '{print $1}')"
+	local outMuted="$(echo $paStatus | awk '{print $2}')"
+	local inMuted="$(echo $paStatus | awk '{print $3}')"
+
+	if [ $outMuted == "yes" ]; then
+		echo "M"
+	else
+		echo "$paVol%"
+	fi
+
+	if [ $inMuted == "no" ]; then
+		echo "[Mic]"
+	fi
+
+	# Brightness
+	#echo "$delim"
+	#echo "Brightness"
+
+	# Network
+	echo "$delim"
+	echo "Net:"
+	local ethState="$(cat /sys/class/net/enp0s25/operstate)"
+	local wifiState="$(iwctl station wlan0 show | grep State | awk '{print $2}'i)"
+
+	if [ $ethState != "down" ]; then echo "eth"; fi
+	if [ $wifiState == "connected" ]; then echo "wifi"; fi
+
+	# Battery
+	echo "$delim"
+	echo "Bat:"
+	local energyFull="$(cat /sys/class/power_supply/BAT0/energy_full)"
+	local energyNow="$(cat /sys/class/power_supply/BAT0/energy_now)"
+
+	echo $(python -c "print(int(${energyNow}/${energyFull}*100))")"%"
+
+
+	# Date and time
+	echo "$delim"
+	echo "$(date '+%a, %d.%m.%Y %H:%M')"
+}
+
+xsetroot -name "$(content | tr '\n' ' ')"

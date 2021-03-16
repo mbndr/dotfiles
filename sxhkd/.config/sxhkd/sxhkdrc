@@ -1,0 +1,42 @@
+# Reload sxhkd
+alt + shift + Escape
+	pkill -USR1 -x sxhkd
+
+# AUDIO / MUSIC
+XF86AudioMute
+	pulseaudio-ctl mute && $HOME/.scripts/topbar-content
+
+XF86Audio{Raise,Lower}Volume
+    pulseaudio-ctl {up,down} && $HOME/.scripts/topbar-content
+
+{_, ctrl +}XF86AudioPlay
+	$HOME/.scripts/mediactl {spotify, firefox} play-pause 1 1
+
+{XF86AudioNext, super + Right}
+	$HOME/.scripts/mediactl spotify next 1 1
+
+{XF86AudioPrev, super + Left}
+	$HOME/.scripts/mediactl spotify next 1 1 
+
+
+
+# (un)mute mic
+ctrl + alt + m
+	pulseaudio-ctl mute-input && $HOME/.scripts/topbar-content
+
+
+alt + {k,j}
+    pulseaudio-ctl {up,down} && $HOME/.scripts/topbar-content
+
+# APPLICATIONS
+super + shift + w
+	firefox
+
+super + shift + t
+	$TERMINAL
+
+super + shift + n
+	$TERMINAL nvim $HOME/notes.txt
+
+super + shift + a
+	$TERMINAL ncpamixer
