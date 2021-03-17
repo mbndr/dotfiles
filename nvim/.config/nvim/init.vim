@@ -13,6 +13,7 @@ call plug#end()
 set tabstop=4
 set shiftwidth=4
 set numberwidth=4
+set expandtab
 set number
 set relativenumber
 
