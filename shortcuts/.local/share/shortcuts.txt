@@ -1,0 +1,9 @@
+w           ~/.local/share/wallpapers
+wm          ~/.local/share/src/dwm
+st          ~/.local/share/src/st
+
+st          ~/.local/share/src/st/config.h
+
+# Hello 
+dot         ~/.dotfiles
+

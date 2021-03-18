@@ -1,0 +1,4 @@
+export DEFAULT_JAVA=$(archlinux-java get)
+export JAVA_HOME=$(echo /usr/lib/jvm/$DEFAULT_JAVA)
+export _JAVA_AWT_WM_NONREPARENTING=1 
+oracle-sqldeveloper

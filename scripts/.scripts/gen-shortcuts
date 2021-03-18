@@ -1,0 +1,28 @@
+#!/bin/bash
+#
+# Generate shortcuts for fast cd-ing in a directory.
+# Config line should be in this format:
+# w         ~/.local/share/wallpapers
+# that results in alias "c.w" which does cd and pwd into folder.
+# Shortcuts must be included by .bashrc
+# TODO: also for ranger
+# TODO: if is file, open it, else cd and pwd
+
+INPUT="$HOME/.local/share/shortcuts.txt"
+BASH_OUTPUT="$HOME/.bash_shortcuts"
+DIR_SUFFIX=".d"
+FILE_SUFFIX=".f"
+
+# bash
+sed "/^$/d;/^#/d" $INPUT | awk -v ds="$DIR_SUFFIX" -v fs="$FILE_SUFFIX" '
+{
+    if (system("[ -d "$2" ]") == 0) {
+        print "alias "$1ds"=\"cd "$2" && pwd\""
+    }
+
+    if (system("[ -f "$2" ]") == 0) {
+        print "alias "$1fs"=\"$EDITOR "$2"\""
+    }
+}' > "$BASH_OUTPUT"
+
+

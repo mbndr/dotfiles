@@ -29,15 +29,7 @@ function cfg() {
 	esac
 }
 
-function goto() {
-	case $1 in
-		"dwm") cd "$DWMHOME";;
-		"st") cd "$STHOME";;
-		*) echo "Invalid goto key"; return 1;;
-	esac
-}
-
-export PATH=$PATH:~/.scripts
+export PATH=$PATH:~/.scripts:~/.local/bin
 export PAGER="most"
 
 # Prompt
@@ -51,7 +43,13 @@ _prompt() {
 	PS1="${codepart}[\[\e[0;32m\]\u\[\e[0m\]@\[\e[0;36m\]\H\[\e[0m\]] \[\e[0;33m\]\W\[\e[0m\] $ "
 }
 
+# Load shortcuts
+if [ -f ~/.bash_shortcuts ]; then
+    source ~/.bash_shortcuts
+fi
+
 # Load custom bash config file
 if [ -f ~/.bash_custom ]; then
     source ~/.bash_custom
 fi
+

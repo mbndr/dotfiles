@@ -49,9 +49,11 @@ function content() {
 	echo "Net:"
 	local ethState="$(cat /sys/class/net/enp0s25/operstate)"
 	local wifiState="$(iwctl station wlan0 show | grep State | awk '{print $2}'i)"
+	local othvpnFile="/sys/class/net/ppp0"
 
 	if [ $ethState != "down" ]; then echo "eth"; fi
 	if [ $wifiState == "connected" ]; then echo "wifi"; fi
+    if [ -a $othvpnFile ]; then echo "[OTH]"; fi
 
 	# Battery
 	echo "$delim"
