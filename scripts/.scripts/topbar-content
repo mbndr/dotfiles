@@ -41,8 +41,9 @@ function content() {
 	fi
 
 	# Brightness
-	#echo "$delim"
-	#echo "Brightness"
+	echo "$delim"
+	echo "Light:"
+    echo "$(sudo xbacklight -get)%"
 
 	# Network
 	echo "$delim"

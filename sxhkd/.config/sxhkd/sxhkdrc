@@ -25,6 +25,9 @@ super + ctrl + m
 super + ctrl + {k,j}
     pulseaudio-ctl {up,down} && $HOME/.scripts/topbar-content
 
+# xbacklight must be allowed with NOPASSWD in /etc/sudoers
+XF86MonBrightness{Up,Down}
+    sudo xbacklight {-inc,-dec} 10 && $HOME/.scripts/topbar-content
 
 # APPLICATIONS
 super + w
