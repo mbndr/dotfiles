@@ -45,8 +45,9 @@ RightMouse(tagbar) + Alt            add focused window to tag
 # Media control (default media keys also work)
 MediaPlay                           play / pause spotify
 MediaPlay + Ctrl                    play / pause firefox
-Super + Right                       next spotify song
-Super + Left                        prev spotify song
+Super + Ctrl + Right                next spotify song
+Super + Ctrl + Left                 prev spotify song
 Super + Ctrl + {j,k}                volume {down,up}
+Super + Ctrl + p                    play / pause spotify
 Super + Ctrl + m                    toggle microphone mute state
 ```

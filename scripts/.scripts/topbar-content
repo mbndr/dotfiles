@@ -32,9 +32,11 @@ function content() {
 
 	if [ $outMuted == "yes" ]; then
 		echo "M"
-	else
+    elif [ $outMuted == "no" ]; then
 		echo "$paVol%"
-	fi
+    else
+        echo "off"
+    fi
 
 	if [ $inMuted == "no" ]; then
 		echo "[Mic]"
@@ -61,9 +63,13 @@ function content() {
 	echo "Bat:"
 	local energyFull="$(cat /sys/class/power_supply/BAT0/energy_full)"
 	local energyNow="$(cat /sys/class/power_supply/BAT0/energy_now)"
+    local status="$(cat /sys/class/power_supply/BAT0/status)"
 
 	echo $(python -c "print(int(${energyNow}/${energyFull}*100))")"%"
 
+    if [ $status != "Charging" ]; then
+        echo "[D]"
+    fi
 
 	# Date and time
 	echo "$delim"

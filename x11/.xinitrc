@@ -7,6 +7,6 @@ xinput set-prop "Synaptics tm2964-001" "libinput Tapping Enabled" 1
 
 sxhkd & 			# Shortcuts
 topbar-start &		# Start topbar
-dunst &
+dunst &             # Notifications
 
 exec ~/.scripts/startdwm

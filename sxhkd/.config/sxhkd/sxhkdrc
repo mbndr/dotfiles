@@ -12,11 +12,17 @@ XF86Audio{Raise,Lower}Volume
 {_, ctrl +}XF86AudioPlay
 	$HOME/.scripts/mediactl {spotify, firefox} play-pause 1 1
 
-{XF86AudioNext, super + Right}
+{XF86AudioNext, super + ctrl + Right}
 	$HOME/.scripts/mediactl spotify next 1 1
 
-{XF86AudioPrev, super + Left}
+{XF86AudioPrev, super + ctrl + Left}
 	$HOME/.scripts/mediactl spotify previous 1 1 
+
+XF86AudioMicMute
+	pulseaudio-ctl mute-input && $HOME/.scripts/topbar-content
+
+super + ctrl + p
+	$HOME/.scripts/mediactl spotify play-pause 1 1
 
 # (un)mute mic
 super + ctrl + m

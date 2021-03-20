@@ -7,6 +7,7 @@ endif
 
 call plug#begin('~/.config/nvim/plugged')
 Plug 'morhetz/gruvbox'
+Plug 'neomutt/neomutt.vim'
 call plug#end()
 
 " Misc settings
