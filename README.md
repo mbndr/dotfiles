@@ -29,6 +29,9 @@ Alt + Shift + 0                     move window to all tags
 Alt + {Comma,Period}                move monitor focus
 Alt + Shift + q                     restart dwm
 Alt + {Plus,Minus}                  set gap size
+Alt + Ctrl + {1,2,3,4,5}            add tag to view
+Alt + Ctrl + Shift + {1,2,3,4,5}    toggle current window on tag
+
 
 LeftMouse(layoutsymbol)             toggle tiled,monocle layout
 LeftMouse(tagbar)                   show exclusively this tag

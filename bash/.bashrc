@@ -18,17 +18,6 @@ alias mixer="ncpamixer"
 DWMHOME="$HOME/.local/share/src/dwm"
 STHOME="$HOME/.local/share/src/st"
 
-function cfg() {
-	case $1 in
-		"dwm") $EDITOR "$DWMHOME/config.h";;
-		"st") $EDITOR "$STHOME/config.h";;
-		"b" | "bash") $EDITOR "$HOME/.bashrc";;
-		"nv" | "nvim") $EDITOR "$HOME/.config/nvim/init.vim";;
-		"sx" | "key") $EDITOR "$HOME/.config/sxhkd/sxhkdrc";;
-		*) echo "Invalid cfg key"; return 1;;
-	esac
-}
-
 export PATH=$PATH:~/.scripts:~/.local/bin
 export PAGER="most"
 

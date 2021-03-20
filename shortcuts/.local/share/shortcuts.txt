@@ -1,9 +1,14 @@
 w           ~/.local/share/wallpapers
-wm          ~/.local/share/src/dwm
-st          ~/.local/share/src/st
+s           ~/.local/share
+b           ~/.bashrc
+nv          ~/.config/nvim/init.vim
+sx          ~/.config/sxhkd/sxhkdrc
+sc          ~/.scripts
 
+dwm         ~/.local/share/src/dwm
+dwm         ~/.local/share/src/dwm/config.h
+st          ~/.local/share/src/st
 st          ~/.local/share/src/st/config.h
 
-# Hello 
 dot         ~/.dotfiles
-
+dot         ~/.dotfiles/README.md
