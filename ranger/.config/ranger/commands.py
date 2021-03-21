@@ -25,6 +25,12 @@ class wallpaper(Command):
 
         self.fm.run("feh --bg-" + mode + " " + self.fm.thisfile.path)
 
+    # TODO: do this properly
+    #def tab(self, tabnum):
+    #    if tabnum == 1:
+    #        return ["center", "fill", "max", "scale", "tile"]
+
+
 class my_edit(Command):
     """:my_edit <filename>
 
