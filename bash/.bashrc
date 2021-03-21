@@ -14,6 +14,7 @@ alias nv="nvim"
 alias mkd="mkdir -pv"
 alias mixer="ncpamixer"
 alias q="exit"
+alias r="ranger"
 
 # misc vars
 DWMHOME="$HOME/.local/share/src/dwm"

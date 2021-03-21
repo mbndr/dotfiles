@@ -50,3 +50,6 @@ super + a
 
 super + m
     thunderbird
+
+super + r
+    $TERMINAL ranger
