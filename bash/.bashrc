@@ -13,13 +13,14 @@ alias tree="tree -a -C -I '.git'"
 alias nv="nvim"
 alias mkd="mkdir -pv"
 alias mixer="ncpamixer"
+alias q="exit"
 
 # misc vars
 DWMHOME="$HOME/.local/share/src/dwm"
 STHOME="$HOME/.local/share/src/st"
 
 export PATH=$PATH:~/.scripts:~/.local/bin
-export PAGER="most"
+export PAGER="vimpager"
 
 # Prompt
 export PROMPT_COMMAND=_prompt

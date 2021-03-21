@@ -4,6 +4,7 @@ b           ~/.bashrc
 nv          ~/.config/nvim/init.vim
 sx          ~/.config/sxhkd/sxhkdrc
 sc          ~/.scripts
+m           ~/.mbsyncrc
 
 dwm         ~/.local/share/src/dwm
 dwm         ~/.local/share/src/dwm/config.h

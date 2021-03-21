@@ -47,3 +47,6 @@ super + n
 
 super + a
 	$TERMINAL ncpamixer
+
+super + m
+    thunderbird
