@@ -1,47 +1,73 @@
+" Plugin management
+    if empty(glob('~/.config/nvim/autoload/plug.vim'))
+        silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+        autocmd VimEnter * PlugInstall
+    endif
 
-" auto install vim-plug
-if empty(glob('~/.config/nvim/autoload/plug.vim'))
-	silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-	autocmd VimEnter * PlugInstall
-endif
+    call plug#begin('~/.config/nvim/plugged')
+        Plug 'morhetz/gruvbox'
+        Plug 'neomutt/neomutt.vim'
+        Plug 'preservim/nerdtree'
+        Plug 'vim-scripts/loremipsum'
+        Plug 'davidhalter/jedi-vim'
+    call plug#end()
 
-call plug#begin('~/.config/nvim/plugged')
-Plug 'morhetz/gruvbox'
-Plug 'neomutt/neomutt.vim'
-call plug#end()
+" Set theme
+    autocmd VimEnter * ++nested colorscheme gruvbox
+
+" Statusline
+    "set statusline=%f
+    "set statusline+=\ -\ %y
+    "set statusline+=%=
+    "set statusline+=%l/%L
+    "set statusline+=\ 
+
+
+" Default map leader
+    let mapleader = "-"
 
 " Misc settings
-set tabstop=4
-set shiftwidth=4
-set numberwidth=4
-set expandtab
-set number
-set relativenumber
+    set tabstop=4
+    set shiftwidth=4
+    set numberwidth=4
+    set expandtab
+    set number
+    set relativenumber
+    set hlsearch
+    set nowrap
 
-" Key mappings
-" move lines
-nnoremap <c-j> :move +1<CR>
-nnoremap <c-k> :move -2<CR>
-" delete line
-inoremap <c-d> <esc>ddi
-nnoremap <c-d> dd
-" duplicate line
-inoremap <c-e> <esc>yypi
-nnoremap <c-e> yyp 
+" Enable mouse scrolling
+    set mouse=a
 
+" Move lines
+    nnoremap <c-j> :move +1<CR>
+    nnoremap <c-k> :move -2<CR>
 
-" set theme
-autocmd VimEnter * ++nested colorscheme gruvbox
+" Delete line
+    inoremap <c-d> <esc>ddi
+    nnoremap <c-d> dd
 
-" reminder message
-autocmd BufWritePost */config.h echom "Don't forget to make and restart!"
+" Duplicate line
+    inoremap <c-e> <esc>yypi
+    nnoremap <c-e> yyp 
 
-function ReloadSxhkd()
-	echom "sxhkd reloaded"
-	!pkill -USR1 -x sxhkd
-endfunction
+" Tabbing through buffers
+    nnoremap <C-o> :bn<CR>
+    nnoremap <C-i> :bp<CR>
 
-autocmd BufWritePost */sxhkdrc call ReloadSxhkd()
+" NERDTree settings
+    nnoremap <leader>n :NERDTreeFocus<CR>
+    nnoremap <C-n> :NERDTreeToggle<CR>
+    autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 
-" this lets vim freeze sometimes...
-"autocmd BufWritePost */init.vim :source $MYVIMRC
+" Autoreload sxhkd
+    autocmd BufWritePost */sxhkdrc !pkill -USR1 -x sxhkd
+
+" autogenerate main latex document (texlive-most needed)
+    autocmd BufWritePost *.tex !latexmk -pdf document.tex
+
+" autogenerate groff ms documents
+    autocmd BufWritePost *.ms !groff -Kutf8 -Tpdf -ms % > %:r.pdf
+
+" Python: no docstring window on autocomplete
+    autocmd FileType python setlocal completeopt-=preview

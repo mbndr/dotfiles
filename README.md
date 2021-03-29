@@ -16,7 +16,7 @@ super + a                           audio mixer
 
 # Window manager
 Alt + B                             toggle bar
-Alt + {j,k}                         move focus
+Alt + {j,k,Tab}                     move focus
 Alt + {h,l}                         make master {smaller,larger}
 Alt + Return                        window to master
 Alt + q                             kill window

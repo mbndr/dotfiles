@@ -23,7 +23,7 @@ class wallpaper(Command):
         else:
             mode = "fill"
 
-        self.fm.run("feh --bg-" + mode + " " + self.fm.thisfile.path)
+        self.fm.run("feh --bg-" + mode + " \"" + self.fm.thisfile.path + "\"")
 
     # TODO: do this properly
     #def tab(self, tabnum):
