@@ -13,3 +13,6 @@ st          ~/.local/share/src/st/config.h
 
 dot         ~/.dotfiles
 dot         ~/.dotfiles/README.md
+
+# custom for this semester
+kdsp        ~/source/in6/KDSP/project

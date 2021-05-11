@@ -1,0 +1,26 @@
+#!/bin/bash
+#
+# Automatically open a latex project.
+# $1 must be a directory where document.tex and document.pdf are present
+
+if [ -z $1 ]; then
+    echo "no path/key given"
+    exit 1
+fi
+
+path=$1
+
+tex="${path%/}/document.tex"
+pdf="${path%/}/document.pdf"
+
+if [ ! -f "$tex" ]; then
+    echo "no document.tex in this directory: $path"
+    exit 1
+fi
+
+if [ -f "$pdf" ]; then
+    zathura "$pdf" &
+fi
+
+st bash --rcfile <(echo ". ~/.bashrc; cd ${path} && nvim document.tex") &
+

@@ -15,6 +15,7 @@ alias mkd="mkdir -pv"
 alias mixer="ncpamixer"
 alias q="exit"
 alias r="ranger"
+alias SS="sudo systemctl"
 
 # misc vars
 DWMHOME="$HOME/.local/share/src/dwm"

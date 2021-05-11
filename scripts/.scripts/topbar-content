@@ -65,8 +65,15 @@ function content() {
 	local energyNow="$(cat /sys/class/power_supply/BAT0/energy_now)"
     local status="$(cat /sys/class/power_supply/BAT0/status)"
 
-	echo $(python -c "print(int(${energyNow}/${energyFull}*100))")"%"
+	energyPercent=$(python -c "print(int(${energyNow}/${energyFull}*100))")
 
+    if [ "$energyPercent" -lt "5" ]; then
+        notify-send -u critical "Battery is very low!"
+    elif [ "$energyPercent" -lt "10" ]; then
+        notify-send -u normal "Battery is low!"
+    fi
+
+    echo "$energyPercent%"
     if [ $status != "Charging" ]; then
         echo "[D]"
     fi
