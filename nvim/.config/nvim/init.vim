@@ -60,6 +60,8 @@
 " Basic autocomplete
     inoremap <C-Space> <C-n>
 
+" Relative number toggling
+    nnoremap <leader>r :set relativenumber!<CR>
 
 " NERDTree settings
     nnoremap <leader>n :NERDTreeFocus<CR>
@@ -80,7 +82,7 @@
     autocmd BufWritePost */sxhkdrc !pkill -USR1 -x sxhkd
 
 " autogenerate main latex document (texlive-most needed)
-    autocmd BufWritePost *.tex !latexmk -shell-escape -pdf document.tex
+    autocmd BufWritePost *.tex !pdflatex -shell-escape document.tex
 
 " autogenerate groff ms documents
     autocmd BufWritePost *.ms !groff -Kutf8 -Tpdf -ms % > %:r.pdf
