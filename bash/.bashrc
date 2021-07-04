@@ -21,6 +21,8 @@ alias SS="sudo systemctl"
 DWMHOME="$HOME/.local/share/src/dwm"
 STHOME="$HOME/.local/share/src/st"
 
+export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/lib"
+
 export PATH=$PATH:~/.scripts:~/.local/bin
 export PAGER="vimpager"
 

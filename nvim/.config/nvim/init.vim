@@ -11,8 +11,10 @@
         Plug 'vim-scripts/loremipsum'
         Plug 'hallzy/gravity.vim'
         Plug 'Nopik/vim-nerdtree-direnter/'
-        "Plug 'davidhalter/jedi-vim'
     call plug#end()
+
+" TODO: Nerdtree open also in newtab (maybe existing thing?) how to switch
+" tabs in vim
 
 " Set theme
     autocmd VimEnter * ++nested colorscheme gruvbox
@@ -77,6 +79,7 @@
     nnoremap <C-n> :NERDTreeToggle<CR>
     autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
     let NERDTreeMapOpenInTab='<ENTER>'
+    let NERDTreeQuitOnOpen=1
 
 " Autoreload sxhkd
     autocmd BufWritePost */sxhkdrc !pkill -USR1 -x sxhkd

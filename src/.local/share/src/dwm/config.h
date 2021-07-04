@@ -13,8 +13,9 @@ static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
 static const char col_cyan[]        = "#005577";
-//static const char col_primary[]     = "#226e8c"; // custom color
-static const char col_primary[]     = "#a83920"; // custom color
+//static const char col_primary[]     = "#226e8c"; // custom color (blue)
+//static const char col_primary[]     = "#a83920"; // custom color (orangered)
+static const char col_primary[]     = "#53808a"; // custom color (blue grey)
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
