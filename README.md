@@ -1,5 +1,7 @@
 # Dotfiles
 
+> These are my dotfiles for my Arch Linux with dwm installation. Many of these are only working in that environment. But repository can be used as reference for other dotfiles.
+
 ![scrot](scrot.png)
 
 Dotfiles can be setup with gnu `stow /*`.
